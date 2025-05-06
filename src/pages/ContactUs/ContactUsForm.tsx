@@ -1,13 +1,19 @@
-import { Button, Input } from "@mui/joy";
+import { Button, Card, FormLabel, Input, Textarea } from "@mui/joy";
 import { sendContactAction } from "./sendContactActions.ts";
 
 const contactUsForm = () => {
   return (
-    <form id="contact-form" action={() => console.log(sendContactAction())}>
-      <Input type="text" name="username" />
-      <Input type="text" name="text" />
-      <Button type="submit">Submit</Button>
-    </form>
+    <Card>
+      <form id="contact-form" action={() => console.log(sendContactAction())}>
+        <FormLabel>Name</FormLabel>
+        <Input type="text" name="name" required={true} />
+        <FormLabel>Email</FormLabel>
+        <Input type="text" name="email" required={true} />
+        <FormLabel>Message</FormLabel>
+        <Textarea minRows={2} name="message" required={true} />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Card>
   );
 };
 
