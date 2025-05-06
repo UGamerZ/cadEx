@@ -1,6 +1,7 @@
 import type { Context } from "@netlify/functions";
 
 export default async (req: Request, context: Context) => {
-  console.log(`Thank you for your interest, ${req.body}`);
-  return new Response(`Thank you for your interest, ${req.body}`);
+  const resp = await req.json();
+  console.log(`Thank you for your interest, ${resp.body}`);
+  return new Response(`Thank you for your interest, ${resp.body}`);
 };
