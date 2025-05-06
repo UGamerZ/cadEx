@@ -43,6 +43,12 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5%;
+  gap: 50px;
   align-items: center;
+`;
+
+export const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `;
