@@ -3,7 +3,7 @@ import { sendContactAction } from "./sendContactActions.ts";
 
 const contactUsForm = () => {
   return (
-    <form id="my-form" action={() => console.log(sendContactAction())}>
+    <form id="contact-form" action={() => console.log(sendContactAction())}>
       <Input type="text" name="username" />
       <Input type="text" name="text" />
       <Button type="submit">Submit</Button>
