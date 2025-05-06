@@ -2,15 +2,11 @@ import axios from "axios";
 
 export const sendContactAction = async () => {
   const response = await axios.post(
-    "https://functions.yandexcloud.net/d4egbnedt4b58pmh8p0o",
-    {
-      firstName: "Fred",
-      lastName: "Flintstone",
-      orders: [1, 2, 3],
-    },
+    "https://cadexhir.netlify.app/.netlify/functions/contact",
+    document.querySelector("#contact-form"),
     {
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
     },
   );
