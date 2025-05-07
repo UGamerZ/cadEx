@@ -5,9 +5,9 @@ import * as React from "react";
 import { sendContactAction } from "./sendContactActions.ts";
 
 const ContactUsForm = ({
-  setFormData,
+  setResponseData,
 }: {
-  setFormData: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setResponseData: React.Dispatch<React.SetStateAction<string | undefined>>;
 }) => {
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const ContactUsForm = ({
         <ContactForm
           id="contact-form"
           action={() => {
-            sendContactAction().then((response) => setFormData(response));
+            sendContactAction().then((response) => setResponseData(response));
             navigate("success");
           }}
         >
