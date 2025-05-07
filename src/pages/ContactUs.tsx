@@ -1,12 +1,10 @@
-import { Typography } from "@mui/joy";
 import { FormWrapper } from "../styles/style.ts";
-import ContactUsForm from "./ContactUs/ContactUsForm.tsx";
+import { Outlet } from "react-router";
 
 const ContactUs = () => {
   return (
     <FormWrapper>
-      <Typography level="h1">Only CTA on the page</Typography>
-      <ContactUsForm />
+      <Outlet />
     </FormWrapper>
   );
 };

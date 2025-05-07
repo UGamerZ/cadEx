@@ -1,26 +1,35 @@
-import { Button, Card, FormLabel, Input, Textarea } from "@mui/joy";
-import { sendContactAction } from "./sendContactActions.ts";
+import { Button, Card, FormLabel, Input, Textarea, Typography } from "@mui/joy";
+import { Data, setData } from "./sendContactActions.ts";
 import { ContactForm } from "../../styles/style.ts";
+import { useNavigate } from "react-router";
 
-const contactUsForm = () => {
+const ContactUsForm = () => {
+  const navigate = useNavigate();
+
   return (
-    <Card>
-      <ContactForm
-        id="contact-form"
-        action={() => console.log(sendContactAction())}
-      >
-        <FormLabel>Name</FormLabel>
-        <Input type="text" name="name" required={true} />
-        <FormLabel>Email</FormLabel>
-        <Input type="text" name="email" required={true} />
-        <FormLabel>Message</FormLabel>
-        <Textarea minRows={2} name="message" required={true} />
-        <Button color="neutral" type="submit">
-          Submit
-        </Button>
-      </ContactForm>
-    </Card>
+    <>
+      <Typography level="h1">Only CTA on the page</Typography>
+      <Card>
+        <ContactForm
+          id="contact-form"
+          action={() => {
+            setData().then(() => console.log(Data));
+            navigate("success");
+          }}
+        >
+          <FormLabel>Name</FormLabel>
+          <Input type="text" name="name" required={true} />
+          <FormLabel>Email</FormLabel>
+          <Input type="text" name="email" required={true} />
+          <FormLabel>Message</FormLabel>
+          <Textarea minRows={2} name="message" required={true} />
+          <Button color="neutral" type="submit">
+            Submit
+          </Button>
+        </ContactForm>
+      </Card>
+    </>
   );
 };
 
-export default contactUsForm;
+export default ContactUsForm;
