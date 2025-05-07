@@ -1,9 +1,14 @@
 import { Button, Card, FormLabel, Input, Textarea, Typography } from "@mui/joy";
-import { setData } from "./sendContactActions.ts";
 import { ContactForm } from "../../styles/style.ts";
 import { useNavigate } from "react-router";
+import * as React from "react";
+import { sendContactAction } from "./sendContactActions.ts";
 
-const ContactUsForm = () => {
+const ContactUsForm = ({
+  setFormData,
+}: {
+  setFormData: React.Dispatch<React.SetStateAction<string | undefined>>;
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +18,7 @@ const ContactUsForm = () => {
         <ContactForm
           id="contact-form"
           action={() => {
-            setData();
+            sendContactAction().then((response) => setFormData(response));
             navigate("success");
           }}
         >
