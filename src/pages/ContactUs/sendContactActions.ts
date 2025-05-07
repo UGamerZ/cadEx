@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export let Data = undefined;
+let Data: Element | null = null;
 
-const sendContactAction = async () => {
+export const sendContactAction = async () => {
   const response = await axios.post(
     "https://cadexhir.netlify.app/.netlify/functions/contact",
-    document.querySelector("#contact-form"),
+    Data,
     {
       headers: {
         "Content-Type": "application/json",
@@ -15,6 +15,6 @@ const sendContactAction = async () => {
   return response.data;
 };
 
-export const setData = async () => {
-  Data = await sendContactAction();
+export const setData = () => {
+  Data = document.querySelector("#contact-form");
 };

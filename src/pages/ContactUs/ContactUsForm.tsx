@@ -1,5 +1,5 @@
 import { Button, Card, FormLabel, Input, Textarea, Typography } from "@mui/joy";
-import { Data, setData } from "./sendContactActions.ts";
+import { setData } from "./sendContactActions.ts";
 import { ContactForm } from "../../styles/style.ts";
 import { useNavigate } from "react-router";
 
@@ -13,7 +13,7 @@ const ContactUsForm = () => {
         <ContactForm
           id="contact-form"
           action={() => {
-            setData().then(() => console.log(Data));
+            setData();
             navigate("success");
           }}
         >
