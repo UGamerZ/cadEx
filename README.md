@@ -1,54 +1,39 @@
-# React + TypeScript + Vite
+# CAD Exchanger Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A test task for CADEx
 
-Currently, two official plugins are available:
+# Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For setup, you can simply clone repo into your own netlify project, or locally and use terminal's `npm install` and `npm run dev` commands, but you'll have to use proxy to bypass CORS for the serverless function to work
 
-## Expanding the ESLint configuration
+# Hosting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Whole project was deployed to netlify, the link for the site: https://cadexhiring.netlify.app/
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+# Backend
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+For backend realization the built-in netlify feature called "serverless functions" was used. The netlify function was created in the corresponding folder (`netlify/functions/contact.mts`).  The "Axios" library is used to make POST requests on the function
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+# Styling
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+For easy creation of the client's side of the app, the MUI Joy component library is being used. In addition, wrapper, header, etc. components were made with CSS-in-JS Styled-Components (`src/styles/style.ts`).
+Also, to reduce the amount of unnecessary code the React Component `style` field was used for couple of rules
+
+# Youtube video implementation
+
+To add YT video to the site, the third-party library "React Player" is being used. This library supports different url's and allows pretty narrow configuration, which makes it much more flexible than default YT embed
+
+# Code
+
+"ESLint" and "Prettier" libraries are used for code linting
+
+To maximize the performance and code understanding, "React router DOM" is being used for navigation with base sticky header and footer layout, also each page is split to group of components and all the Backend request logic is specified in separate file (`src/pages/ContactUs/sendContactActions.ts`)
+
+The components are easy to edit, replace, or delete, to add more flexibility to them the props are being used
+
+# Additional info
+
+For socials, the Open Graph tags were implemented:
+![Screenshot 2025-05-07 234434](https://github.com/user-attachments/assets/7504d5c7-06d2-419d-91d5-6afef3b47cf4)
+
+
