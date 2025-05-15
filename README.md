@@ -30,6 +30,7 @@ Build: Vite + React + TS
 "ESLint" and "Prettier" libraries are used for code linting
 
 To maximize the performance and code understanding, "React router DOM" is being used for navigation with base sticky header and footer layout, also each page is split to group of components and all the Backend request logic is specified in separate file (`src/pages/ContactUs/sendContactActions.ts`)
+Also, to avoid unnecessary re-renders, form components are wrapped in react memo component
 
 The components are easy to edit, replace, or delete, to add more flexibility to them the props are being used
 
