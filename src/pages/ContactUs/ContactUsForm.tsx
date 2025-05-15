@@ -3,8 +3,9 @@ import { ContactForm } from "../../styles/style.ts";
 import { useNavigate } from "react-router";
 import * as React from "react";
 import { sendContactAction } from "./sendContactActions.ts";
+import { memo } from 'react';
 
-const ContactUsForm = ({
+const ContactUsForm = memo(({
   setResponseData,
 }: {
   setResponseData: React.Dispatch<React.SetStateAction<string | undefined>>;
@@ -35,6 +36,6 @@ const ContactUsForm = ({
       </Card>
     </>
   );
-};
+});
 
 export default ContactUsForm;
